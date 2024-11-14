@@ -2,26 +2,33 @@
 
 Currently, NordVPN does not offer an official method to generate a Wireguard configuration file. This tool assists you in creating this file, which can be utilized in various applications.
 
-For this process, you will need:
-- A terminal with Python 3 installed
-- An active NordVPN subscription
-- An internet connection
+## Prerequisites
 
-The tool requires a single input: the access token. This token is used to retrieve the NordLynx private key.
+- Python 3.x
+- Active NordVPN subscription
 
-To obtain this token, go to the [NordVPN site](https://my.nordaccount.com/dashboard/nordvpn/manual-configuration/), click on the `Generate new token` button. Choose `Doesn't expire` and click `Generate token`, then `Copy and close`. This action will save the token to your clipboard.
+## Installation
 
-Next, run the command: `./generate_config.py <YOUR_TOKEN>` in your terminal, replacing `<YOUR_TOKEN>` with the actual token you copied earlier.
-If everything works correctly, you will see a message like: `Successfully created a WireGuard config for server: <NordVPN Country> #<Server number>`.
+Clone this repository and navigate to the project directory to begin.
 
-You will now have a `wg0.conf` file, complete with all necessary settings, ready for use.
+## Usage
 
-## Possible issues
+1. Execute the startup script:
+   ```bash
+   ./run.sh
+   ```
 
-- Error message: `env: python3: No such file or directory`
-    - Possible cause: python3 is not installed on your machine.
-    - Solution: Try running the command like this: `python generate_config.py <YOUR_TOKEN>`. If this still fails probably no python is installed on your machine.
+The script will:
+- Verify Python installation
+- Request your NordVPN API token
+- Generate a `wg0.conf` file containing:
+  - Private/Public key pair
+  - Server endpoint configuration
+  - Connection parameters
 
+## Obtaining a NordVPN API Token
+
+Visit the [NordVPN site](https://my.nordaccount.com/dashboard/nordvpn/access-tokens/) and click the `Generate new token` button. Select `Set to expire in 30 days`, click `Generate token`, and then `Copy and close` to save the token to your clipboard.
 
 ## If this script was beneficial and saved you time, consider supporting me with a coffee
 

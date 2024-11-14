@@ -1,18 +1,12 @@
-#!/usr/bin/env python3
-
 import sys
 import urllib.request
 import json
 import base64
 
 credentials_url = "https://api.nordvpn.com/v1/users/services/credentials"
-recommendations_url = r"https://api.nordvpn.com/v1/servers/recommendations?&filters\[servers_technologies\]\[identifier\]=wireguard_udp&limit=1"
+recommendations_url = r"https://api.nordvpn.com/v1/servers/recommendations?filters\[servers_technologies\]\[identifier\]=wireguard_udp&limit=1"
 config_template_path = "wireguard_config.template"
 output_config_path = "wg0.conf"
-
-if len(sys.argv) < 2:
-    print("Token was not provided! Usage: python fetch.py <API_TOKEN>")
-    sys.exit(1)
 
 api_token = sys.argv[1]
 
